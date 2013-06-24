@@ -7,7 +7,11 @@
 
     $.fn.fancyArea = function () {
         return this.each(function () {
-            // Make it fancy
+            var $area = $('<div class="fancy-area" />'),
+                $ul = $('<ul />').appendTo($area),
+                $input = $('<input />').appendTo($area);
+
+            $(this).replaceWith($area);
         });
     };
 }(jQuery);
