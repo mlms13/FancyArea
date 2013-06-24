@@ -7,11 +7,14 @@
 
     $.fn.fancyArea = function () {
         return this.each(function () {
-            var $area = $('<div class="fancy-area" />'),
+            var $this = $(this),
+                $area = $('<div />'),
                 $ul = $('<ul />').appendTo($area),
                 $input = $('<input />').appendTo($area);
 
-            $(this).replaceWith($area);
+            // absorb classes from the existing textarea that is being replaced
+            $area.addClass('fancy-area ' + $this[0].className);
+            $this.replaceWith($area);
         });
     };
 }(jQuery);
