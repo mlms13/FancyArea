@@ -3,11 +3,11 @@
 // Released under the MIT License
 
 !function ($) {
-	"use strict";
+    "use strict";
 
-	$.fn.fancyArea = function () {
-		return this.each(function () {
-			// Make it fancy
-		});
-	};
+    $.fn.fancyArea = function () {
+        return this.each(function () {
+            // Make it fancy
+        });
+    };
 }(jQuery);
