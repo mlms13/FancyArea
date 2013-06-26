@@ -16,7 +16,12 @@
                 $input = $('<input />').appendTo($area);
 
             function addItem(text) {
-                var $item = $('<li class="fancy-item">' + text + '</li>');
+                var $item = $('<li class="fancy-item">' + text + '</li>'),
+                    $remove = $('<span class="fancy-remove">&times;</span>').appendTo($item);
+
+                $remove.on('click', function () {
+                    $item.remove();
+                });
 
                 $ul.append($item);
             }
