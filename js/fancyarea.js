@@ -28,7 +28,7 @@
                 // if $area or one of its descendants was clicked, return and do nothing
                 // using .has() here seems to be faster than the alternatives
                 // prooflink: http://jsperf.com/jquery-has-vs-is-el-find
-                if ($area.is($target) || $area.has($target).length) return;
+                if ($area.is($target) || $area.has($target).length) { return; }
 
                 // otherwise, remove the *-focus class
                 $area.removeClass('fancy-area-focus');
