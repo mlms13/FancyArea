@@ -2,8 +2,11 @@
 // Copyright 2013 Michael Martin-Smucker
 // Released under the MIT License
 
-!function ($) {
+(function ($, window) {
     "use strict";
+
+    // make sure document is correct
+    var document = window.document;
 
     $.fn.fancyArea = function () {
         return this.each(function () {
@@ -47,4 +50,4 @@
             $this.replaceWith($area);
         });
     };
-}(jQuery);
+}(jQuery, window));
