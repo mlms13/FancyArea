@@ -17,7 +17,7 @@
 
             // clicking on the FancyArea div should focus the input
             $area.on('click', function () {
-                $(this).addClass('fancy-area-focus');
+                $area.addClass('fancy-area-focus');
                 $input.focus();
             });
 
