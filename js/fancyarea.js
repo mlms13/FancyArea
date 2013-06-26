@@ -23,8 +23,12 @@
 
             // simulate a 'blur' event when focus leaves the div/input
             $(document).on('click', function (e) {
+                var $target = $(e.target);
+
                 // if $area or one of its descendants was clicked, return and do nothing
-                if ($(e.target).is($area) || $(e.target).is($area.find('*'))) return;
+                // using .has() here seems to be faster than the alternatives
+                // prooflink: http://jsperf.com/jquery-has-vs-is-el-find
+                if ($area.is($target) || $area.has($target).length) return;
 
                 // otherwise, remove the *-focus class
                 $area.removeClass('fancy-area-focus');
