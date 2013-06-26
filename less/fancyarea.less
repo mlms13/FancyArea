@@ -1,6 +1,9 @@
 .fancy-area {
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     cursor: text;
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
+    transition: border linear .2s, box-shadow linear .2s;
 
     ul {
         list-style: none;
@@ -18,5 +21,7 @@
     }
 }
 .fancy-area-focus {
-    border-color: blue;
+    border-color: #73b8ee;
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
 }
