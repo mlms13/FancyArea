@@ -1,5 +1,6 @@
 .fancy-area {
     border: 1px solid #ddd;
+    cursor: text;
 
     ul {
         list-style: none;
@@ -10,5 +11,12 @@
     input {
         background: none;
         border: 0;
+
+        &:focus {
+            outline: none;
+        }
     }
+}
+.fancy-area-focus {
+    border-color: blue;
 }

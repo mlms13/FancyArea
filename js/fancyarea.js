@@ -14,6 +14,22 @@
 
             // absorb classes from the existing textarea that is being replaced
             $area.addClass('fancy-area ' + $this[0].className);
+
+            // clicking on the FancyArea div should focus the input
+            $area.on('click', function () {
+                $(this).addClass('fancy-area-focus');
+                $input.focus();
+            });
+
+            // simulate a 'blur' event when focus leaves the div/input
+            $(document).on('click', function (e) {
+                // if $area or one of its descendants was clicked, return and do nothing
+                if ($(e.target).is($area) || $(e.target).is($area.find('*'))) return;
+
+                // otherwise, remove the *-focus class
+                $area.removeClass('fancy-area-focus');
+            });
+
             $this.replaceWith($area);
         });
     };
