@@ -15,6 +15,12 @@
                 $ul = $('<ul />').appendTo($area),
                 $input = $('<input />').appendTo($area);
 
+            function addItem(text) {
+                var $item = $('<li class="fancy-item">' + text + '</li>');
+
+                $ul.append($item);
+            }
+
             // absorb classes from the existing textarea that is being replaced
             $area.addClass('fancy-area ' + $this[0].className);
 
@@ -39,11 +45,15 @@
 
             // pressing "Enter" in the input should add the item to the `ul`
             $input.on('keyup', function (e) {
+                var text;
+
                 // only act if the "Enter" key was pressed
                 if (e.which !== 13) { return; }
 
+                text = $input.val();
+
                 // add a new item and clear the input
-                $ul.append('<li class="fancy-item">' + $input.val() + '</li>');
+                addItem(text);
                 $input.val('');
             });
 
