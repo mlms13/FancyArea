@@ -34,6 +34,16 @@
                 $area.removeClass('fancy-area-focus');
             });
 
+            // pressing "Enter" in the input should add the item to the `ul`
+            $input.on('keyup', function (e) {
+                // only act if the "Enter" key was pressed
+                if (e.which !== 13) { return; }
+
+                // add a new item and clear the input
+                $ul.append('<li class="fancy-item">' + $input.val() + '</li>');
+                $input.val('');
+            });
+
             $this.replaceWith($area);
         });
     };
