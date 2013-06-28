@@ -6,10 +6,11 @@
     "use strict";
 
     // make sure document is correct
-    var document = window.document;
+    var document = window.document,
+        $areas = $();
 
     $.fn.fancyArea = function () {
-        return this.each(function () {
+        this.each(function () {
             var $this = $(this),
                 $area = $('<div />'),
                 $ul = $('<ul />').appendTo($area),
@@ -63,6 +64,9 @@
             });
 
             $this.replaceWith($area);
+            $areas = $areas.add($area);
         });
+
+        return $areas;
     };
 }(jQuery, window));
