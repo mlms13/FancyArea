@@ -14,7 +14,7 @@
             var $this = $(this),
                 $area = $('<div />'),
                 $ul = $('<ul />').appendTo($area),
-                $input = $('<input />').appendTo($area);
+                $input = $('<input class="fancy-text-entry" />').appendTo($area);
 
             function addItem(text) {
                 var $item = $('<li class="fancy-item">' + text + '</li>'),
