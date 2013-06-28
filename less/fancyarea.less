@@ -14,29 +14,7 @@
         margin: 0;
         padding: 0;
     }
-    .fancy-item {
-        background: lighten(@blue, 25%);
-        border: 1px solid lighten(@blue, 5%);
-        margin-top: -1px;
-        position: relative;
-    }
-    .fancy-remove {
-        color: darken(@blue, 20%);
-        cursor: pointer;
-        font-size: 20px;
-        position: absolute;
-        right: 4px;
-        top: 4px;
-        -webkit-transition: .2s;
-        transition: .2s;
-
-        &:hover {
-            color: saturate(darken(@blue, 40%), 30%);
-        }
-    }
     input {
-        background: none;
-        border: 0;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         font-size: 14px;
@@ -48,8 +26,36 @@
             outline: none;
         }
     }
+    .fancy-item {
+        margin-top: -1px;
+        position: relative;
+
+        input {
+            background: lighten(@blue, 25%);
+            border: 1px solid lighten(@blue, 5%);
+
+            &:focus {
+                background: #fff;
+            }
+        }
+    }
+    .fancy-remove {
+        color: darken(@blue, 20%);
+        cursor: pointer;
+        font-size: 20px;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        -webkit-transition: .2s;
+        transition: .2s;
+
+        &:hover {
+            color: saturate(darken(@blue, 40%), 30%);
+        }
+    }
     .fancy-text-entry {
-        padding: 4px 5px; // to match fancy-item's border
+        border: 1px solid transparent; // match width of .fancy-item's border
+        background: none;
     }
 }
 .fancy-area-focus {
