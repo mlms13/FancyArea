@@ -20,9 +20,11 @@
                 var $li = $('<li class="fancy-item">' + text + '</li>').appendTo($list),
                     $remove = $('<span class="fancy-remove">&times;</span>').appendTo($li);
 
-                $remove.on('click', function () {
+                $remove.on('click', function (e) {
+                    e.stopPropagation();
                     $li.remove();
                     $area.trigger('fancyItemRemoved', [text]);
+                    $entry.focus();
                 });
 
                 $area.trigger('fancyItemAdded', [text]);
