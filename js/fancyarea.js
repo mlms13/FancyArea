@@ -13,11 +13,11 @@
         this.each(function () {
             var $this = $(this),
                 $area = $('<div />'),
-                $ul = $('<ul />').appendTo($area),
-                $input = $('<input class="fancy-text-entry" />').appendTo($area);
+                $list = $('<ul />').appendTo($area),
+                $entry = $('<input class="fancy-text-entry" />').appendTo($area);
 
             function addItem(text) {
-                var $li = $('<li class="fancy-item">' + text + '</li>').appendTo($ul),
+                var $li = $('<li class="fancy-item">' + text + '</li>').appendTo($list),
                     $remove = $('<span class="fancy-remove">&times;</span>').appendTo($li);
 
                 $remove.on('click', function () {
@@ -34,7 +34,7 @@
             // clicking on the FancyArea div should focus the input
             $area.on('click', function () {
                 $area.addClass('fancy-area-focus');
-                $input.focus();
+                $entry.focus();
             });
 
             // simulate a 'blur' event when focus leaves the div/input
@@ -51,17 +51,17 @@
             });
 
             // pressing "Enter" in the input should add the item to the `ul`
-            $input.on('keyup', function (e) {
+            $entry.on('keyup', function (e) {
                 var text;
 
                 // only act if the "Enter" key was pressed
                 if (e.which !== 13) { return; }
 
-                text = $input.val();
+                text = $entry.val();
 
                 // add a new item and clear the input
                 addItem(text);
-                $input.val('');
+                $entry.val('');
             });
 
             $this.replaceWith($area);
