@@ -18,13 +18,15 @@
         background: lighten(@blue, 25%);
         border: 1px solid lighten(@blue, 5%);
         margin-top: -1px;
-        padding: 4px;
+        position: relative;
     }
     .fancy-remove {
         color: darken(@blue, 20%);
         cursor: pointer;
-        float: right;
         font-size: 20px;
+        position: absolute;
+        right: 4px;
+        top: 4px;
         -webkit-transition: .2s;
         transition: .2s;
 
@@ -32,20 +34,22 @@
             color: saturate(darken(@blue, 40%), 30%);
         }
     }
-
-    .fancy-text-entry {
+    input {
         background: none;
         border: 0;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         font-size: 14px;
-        margin: 4px 0;
-        padding: 0 5px; // to match fancy-item's border and padding
+        margin: 0;
+        padding: 4px;
         width: 100%;
 
         &:focus {
             outline: none;
         }
+    }
+    .fancy-text-entry {
+        padding: 4px 5px; // to match fancy-item's border
     }
 }
 .fancy-area-focus {
