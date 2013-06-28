@@ -28,6 +28,11 @@
                     $entry.focus();
                 });
 
+                $item.on('keyup', function (e) {
+                    if (e.which !== 13) { return; }
+                    $entry.focus();
+                });
+
                 $area.trigger('fancyItemAdded', [text]);
             }
 
