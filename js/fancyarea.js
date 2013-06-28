@@ -31,23 +31,24 @@
             // absorb classes from the existing textarea that is being replaced
             $area.addClass('fancy-area ' + $this[0].className);
 
-            // clicking on the FancyArea div should focus the input
-            $area.on('click', function () {
-                $area.addClass('fancy-area-focus');
-                $entry.focus();
-            });
-
             // simulate a 'blur' event when focus leaves the div/input
             $(document).on('click', function (e) {
-                var $target = $(e.target);
+                var $target = $(e.target),
+                    focusClass = 'fancy-area-focus';
 
-                // if $area or one of its descendants was clicked, return and do nothing
-                // using .has() here seems to be faster than the alternatives
-                // prooflink: http://jsperf.com/jquery-has-vs-is-el-find
-                if ($area.is($target) || $area.has($target).length) { return; }
-
-                // otherwise, remove the *-focus class
-                $area.removeClass('fancy-area-focus');
+                if ($area.is($target)) {
+                    // if $area was clicked, add the focus class and focus the input
+                    $area.addClass(focusClass);
+                    $entry.focus();
+                } else if ($area.has($target).length) {
+                    // if one of $area's descendants was clicked, only add the focus class
+                    // using .has() here seems to be faster than the alternatives
+                    // prooflink: http://jsperf.com/jquery-has-vs-is-el-find
+                    $area.addClass(focusClass);
+                } else {
+                    // otherwise, remove the focus class
+                    $area.removeClass(focusClass);
+                }
             });
 
             // pressing "Enter" in the input should add the item to the `ul`
