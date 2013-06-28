@@ -17,15 +17,14 @@
                 $input = $('<input class="fancy-text-entry" />').appendTo($area);
 
             function addItem(text) {
-                var $item = $('<li class="fancy-item">' + text + '</li>'),
-                    $remove = $('<span class="fancy-remove">&times;</span>').appendTo($item);
+                var $li = $('<li class="fancy-item">' + text + '</li>').appendTo($ul),
+                    $remove = $('<span class="fancy-remove">&times;</span>').appendTo($li);
 
                 $remove.on('click', function () {
-                    $item.remove();
+                    $li.remove();
                     $area.trigger('fancyItemRemoved', [text]);
                 });
 
-                $ul.append($item);
                 $area.trigger('fancyItemAdded', [text]);
             }
 
