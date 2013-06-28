@@ -22,9 +22,11 @@
 
                 $remove.on('click', function () {
                     $item.remove();
+                    $area.trigger('fancyItemRemoved', [text]);
                 });
 
                 $ul.append($item);
+                $area.trigger('fancyItemAdded', [text]);
             }
 
             // absorb classes from the existing textarea that is being replaced
