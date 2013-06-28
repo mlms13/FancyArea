@@ -25,6 +25,12 @@
         cursor: pointer;
         float: right;
         font-size: 20px;
+        -webkit-transition: .2s;
+        transition: .2s;
+
+        &:hover {
+            color: saturate(darken(@blue, 40%), 30%);
+        }
     }
 
     .fancy-text-entry {
