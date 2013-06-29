@@ -14,7 +14,8 @@
             var $this = $(this),
                 $area = $('<div />'),
                 $list = $('<ul />').appendTo($area),
-                $entry = $('<input class="fancy-text-entry" />').appendTo($area);
+                $entry = $('<input class="fancy-text-entry" />').appendTo($area),
+                items = [];
 
             function addItem(text) {
                 var $li = $('<li class="fancy-item"></li>').appendTo($list),
@@ -29,10 +30,22 @@
                 });
 
                 $item.on('keyup', function (e) {
+                    var $this, index;
+
                     if (e.which !== 13) { return; }
+
+                    // set variables after checking for the "enter" key
+                    $this = $(this);
+                    index = $this.parent().index();
+
+                    // make sure our array of items is up-to-date
+                    items[index] = $this.val();
+
+                    // re-focus the original entry after editing is done
                     $entry.focus();
                 });
 
+                items.push(text);
                 $area.trigger('fancyItemAdded', [text]);
             }
 
