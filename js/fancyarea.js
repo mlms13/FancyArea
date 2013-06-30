@@ -34,7 +34,7 @@
 
                     // re-focus the original entry after editing is done
                     $entry.focus();
-                }).on('blur', function (e) {
+                }).on('blur', function () {
                     var $this = $(this),
                         index = $this.parent().index();
 
@@ -78,14 +78,24 @@
             $entry.on('keyup', function (e) {
                 var text;
 
-                // only act if the "Enter" key was pressed
-                if (e.which !== 13) { return; }
+                if (e.which === 13) {
+                    // add an item if the "Enter" key was pressed
+                    text =  $entry.val();
+                    addItem(text);
+                    $entry.val('');
 
-                text = $entry.val();
+                }
+            }).on('keydown', function (e) {
+                var $prev;
 
-                // add a new item and clear the input
-                addItem(text);
-                $entry.val('');
+                if (e.which === 8 && $entry.val() === '') {
+                    // if backspace is pressed and the input is empty
+                    // re-edit the previous item
+                    $prev = $area.find('li:last');
+                    $entry.val($prev.find('input').val());
+                    $prev.find('.fancy-remove').click();
+                    return false;
+                }
             });
 
             $this.replaceWith($area);
