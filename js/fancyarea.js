@@ -30,19 +30,19 @@
                 });
 
                 $item.on('keyup', function (e) {
-                    var $this, index;
-
                     if (e.which !== 13) { return; }
-
-                    // set variables after checking for the "enter" key
-                    $this = $(this);
-                    index = $this.parent().index();
-
-                    // make sure our array of items is up-to-date
-                    items[index] = $this.val();
 
                     // re-focus the original entry after editing is done
                     $entry.focus();
+                }).on('blur', function (e) {
+                    var $this = $(this),
+                        index = $this.parent().index();
+
+                    // if the value didn't change, return
+                    if (items[index] === $this.val()) { return; }
+
+                    // otherwise, update the array with the latest data
+                    items[index] = $this.val();
                 });
 
                 items.push(text);
