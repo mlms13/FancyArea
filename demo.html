@@ -19,10 +19,9 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script src="js/fancyarea.js"></script>
         <script>
-            $('#my-text').fancyArea().on('fancyItemAdded', function (event, text) {
-                console.log('The following text was added: ' + text);
-            }).on('fancyItemRemoved', function (event, text) {
-                console.log('The following text was removed: ' + text);
+            $('#my-text').fancyArea().on('fancyItemChanged', function (event, items) {
+                console.log('The fancy items changed.');
+                console.log(items);
             });
         </script>
     </body>

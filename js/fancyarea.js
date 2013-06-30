@@ -25,7 +25,7 @@
                 $remove.on('click', function (e) {
                     e.stopPropagation();
                     $li.remove();
-                    $area.trigger('fancyItemRemoved', [text]);
+                    $area.trigger('fancyItemChanged', [items]).trigger('fancyItemRemoved', [text]);
                     $entry.focus();
                 });
 
@@ -41,12 +41,14 @@
                     // if the value didn't change, return
                     if (items[index] === $this.val()) { return; }
 
-                    // otherwise, update the array with the latest data
+                    // otherwise, update the array with the latest data,
+                    // and trigger the change function
                     items[index] = $this.val();
+                    $area.trigger('fancyItemChanged', [items]);
                 });
 
                 items.push(text);
-                $area.trigger('fancyItemAdded', [text]);
+                $area.trigger('fancyItemChanged', [items]).trigger('fancyItemAdded', [text]);
             }
 
             // absorb classes from the existing textarea that is being replaced
