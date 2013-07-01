@@ -53,6 +53,12 @@
                 }).on('blur', function () {
                     var val = $item.val();
 
+                    // re-focus the input if validation fails
+                    if (!settings.validate(val)) {
+                        $item.focus();
+                        return;
+                    }
+
                     // if the value didn't change, return
                     if (items[index].text === val) { return; }
 
