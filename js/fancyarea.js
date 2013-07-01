@@ -9,13 +9,18 @@
     var document = window.document,
         $areas = $();
 
-    $.fn.fancyArea = function () {
+    $.fn.fancyArea = function (options) {
         this.each(function () {
             var $this = $(this),
                 $area = $('<div />'),
                 $list = $('<ul />').appendTo($area),
                 $entry = $('<input class="fancy-text-entry" />').appendTo($area),
-                items = [];
+                items = [],
+                settings = $.extend({
+                    validate: function (text) {
+                        return text !== '';
+                    }
+                }, options);
 
             function getCurrentItems() {
                 var strItems = [],
@@ -104,11 +109,10 @@
 
             // pressing "Enter" in the input should add the item to the `ul`
             $entry.on('keyup', function (e) {
-                var text;
+                var text = $entry.val();
 
-                if (e.which === 13) {
+                if (e.which === 13 && settings.validate(text)) {
                     // add an item if the "Enter" key was pressed
-                    text =  $entry.val();
                     addItem(text);
                     $entry.val('');
                 }
