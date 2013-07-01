@@ -35,7 +35,7 @@
 
             function addItem(text) {
                 var $li = $('<li class="fancy-item"></li>').appendTo($list),
-                    $item = $('<input value="' + text + '" />').appendTo($li),
+                    $item = $('<input />').attr('value', text).appendTo($li),
                     $remove = $('<span class="fancy-remove">&times;</span>').appendTo($li),
                     index = items.length;
 
