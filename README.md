@@ -15,7 +15,9 @@ Is it just a textarea? No. It's much fancier than that. A FancyArea is a great w
 
 It's easy! As long as you're using jQuery 1.7 or newer, just throw a `textarea` on your page, and hit it with this Javascript:
 
-```$('textarea').fancyArea();```
+```
+$('textarea').fancyArea();
+```
 
 Suddenly, your boring `textarea` is transformed into a slick FancyArea.
 
