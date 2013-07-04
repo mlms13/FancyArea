@@ -13,6 +13,9 @@
                 max-width: 400px;
                 min-height: 200px;
             }
+            .dropdown-menu > li > a {
+                text-decoration: none;
+            }
         </style>
     </head>
     <body>
@@ -21,7 +24,9 @@
         <script src="js/bootstrap-typeahead.js"></script>
         <script src="js/fancyarea.js"></script>
         <script>
-            $('#my-text').fancyArea().on('fancyItemChanged', function (event, items) {
+            $('#my-text').fancyArea({
+                data: ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
+            }).on('fancyItemChanged', function (event, items) {
                 console.log('The fancy items changed.');
                 console.log(items);
             });
