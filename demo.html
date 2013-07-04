@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>FancyArea Demo</title>
         <link rel="stylesheet" href="css/fancyarea.css">
+        <link rel="stylesheet" href="css/bootstrap-typeahead.css">
         <style>
             body {
                 font: 14px sans-serif;
@@ -17,6 +18,7 @@
     <body>
         <textarea name="my-text" id="my-text" class="text-narrow" cols="30" rows="6"></textarea>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="js/bootstrap-typeahead.js"></script>
         <script src="js/fancyarea.js"></script>
         <script>
             $('#my-text').fancyArea().on('fancyItemChanged', function (event, items) {
