@@ -17,6 +17,7 @@
                 $entry = $('<input class="fancy-text-entry" />').appendTo($area),
                 items = [],
                 settings = $.extend({
+                    data: [],
                     validate: function (text) {
                         return text !== '';
                     }
@@ -92,6 +93,13 @@
 
             // absorb classes from the existing textarea that is being replaced
             $area.addClass('fancy-area ' + $this[0].className);
+
+            // if data was supplied, create a typeahead box
+            if (settings.data.length) {
+                $entry.typeahead({
+                    source: settings.data
+                });
+            }
 
             // simulate a 'blur' event when focus leaves the div/input
             $(document).on('click', function (e) {
