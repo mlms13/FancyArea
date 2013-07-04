@@ -74,12 +74,13 @@
                     text: text,
                     index: index
                 });
-                $area.trigger('fancyItemChanged', [getCurrentItems()]).trigger('fancyItemAdded', [text]);
+                $area.trigger('fancyItemChanged', [getCurrentItems()]).trigger('fancyItemAdded', [items[index]]);
             }
 
             function removeItem(index) {
+                console.log(index);
                 var current = items[index],
-                    text; // = current.text;
+                    text = current.text;
 
                 // remove the list item from the page
                 current.$li.remove();
@@ -88,7 +89,10 @@
                 items.splice(index, 1);
 
                 // trigger the change and remove events with updated data
-                $area.trigger('fancyItemChanged', [getCurrentItems()]).trigger('fancyItemRemoved', [text]);
+                $area.trigger('fancyItemChanged', [getCurrentItems()]).trigger('fancyItemRemoved', [{
+                    'index': index,
+                    'text': text
+                }]);
             }
 
             // absorb classes from the existing textarea that is being replaced

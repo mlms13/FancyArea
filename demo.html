@@ -26,8 +26,15 @@
         <script>
             $('#my-text').fancyArea({
                 data: ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
-            }).on('fancyItemChanged', function (event, items) {
-                console.log('The fancy items changed.');
+            })
+            .on('fancyItemAdded', function (event, item) {
+                console.log('An item with value ' + item.text + ' was added at position ' + item.index + '.');
+            })
+            .on('fancyItemRemoved', function (event, item) {
+                console.log('The item at position ' + item.index + ' wth a value of ' + item.text + ' was removed.');
+            })
+            .on('fancyItemChanged', function (event, items) {
+                console.log('The fancy items changed. The new list is: ');
                 console.log(items);
             });
         </script>
