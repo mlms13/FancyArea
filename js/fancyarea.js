@@ -83,13 +83,19 @@
 
             function removeItem(index) {
                 var current = items[index],
-                    text = current.text;
+                    text = current.text,
+                    i;
 
                 // remove the list item from the page
                 current.$li.remove();
 
                 // remove the index from the items array
                 items.splice(index, 1);
+
+                // loop through all following items, updating each index
+                for (i = index; i < items.length; i += 1) {
+                    items[i].index -= 1;
+                }
 
                 // trigger the change and remove events with updated data
                 $area.trigger('fancyItemChanged', [getCurrentItems()]).trigger('fancyItemRemoved', [{
