@@ -17,11 +17,13 @@
                 $entry = $('<input class="fancy-text-entry" />').appendTo($area),
                 items = [],
                 settings = $.extend({
-                    data: [],
                     validate: function (text) {
                         return text !== '';
                     }
                 }, options);
+
+            // trigger a global event so that typeahead can bind to the input
+            $(document).trigger('fancyInputCreated', [$entry]);
 
             function getCurrentItems() {
                 var strItems = [],
@@ -42,6 +44,8 @@
                     text: text,
                     index: items.length
                 };
+
+                $(document).trigger('fancyInputCreated', [item.$input]);
 
                 item.$remove.on('click', function (e) {
                     e.stopPropagation();
@@ -106,13 +110,6 @@
 
             // absorb classes from the existing textarea that is being replaced
             $area.addClass('fancy-area ' + $this[0].className);
-
-            // if data was supplied, create a typeahead box
-            if (settings.data.length) {
-                $entry.typeahead({
-                    source: settings.data
-                });
-            }
 
             // simulate a 'blur' event when focus leaves the div/input
             $(document).on('click', function (e) {
