@@ -35,50 +35,53 @@
             }
 
             function addItem(text) {
-                var $li = $('<li class="fancy-item"></li>').appendTo($list),
-                    $item = $('<input />').attr('value', text).appendTo($li),
-                    $remove = $('<span class="fancy-remove">&times;</span>').appendTo($li),
-                    index = items.length;
+                var item = {
+                    $li: $('<li class="fancy-item"></li>'),
+                    $input: $('<input />').attr('value', text),
+                    $remove: $('<span class="fancy-remove">&times;</span>'),
+                    text: text,
+                    index: items.length
+                };
 
-                $remove.on('click', function (e) {
+                item.$remove.on('click', function (e) {
                     e.stopPropagation();
-                    removeItem(index);
+                    removeItem(item.index);
                     $entry.focus();
                 });
 
-                $item.on('keyup', function (e) {
+                item.$input.on('keyup', function (e) {
                     if (e.which !== 13) { return; }
 
                     // re-focus the original entry after editing is done
                     $entry.focus();
                 }).on('blur', function () {
-                    var val = $item.val();
+                    var val = item.$input.val();
 
                     // re-focus the input if validation fails
                     if (!settings.validate(val)) {
-                        $item.focus();
+                        item.$input.focus();
                         return;
                     }
 
                     // if the value didn't change, return
-                    if (items[index].text === val) { return; }
+                    if (items[item.index].text === val) { return; }
 
                     // otherwise, update the array with the latest data,
                     // and trigger the change function
-                    items[index].text = val;
+                    items[item.index].text = val;
                     $area.trigger('fancyItemChanged', [getCurrentItems()]);
                 });
 
-                items.push({
-                    $li: $li,
-                    text: text,
-                    index: index
-                });
-                $area.trigger('fancyItemChanged', [getCurrentItems()]).trigger('fancyItemAdded', [items[index]]);
+                // piece the elements together
+                item.$li.append(item.$input, item.$remove).appendTo($list);
+
+                // add item to the array
+                items.push(item);
+
+                $area.trigger('fancyItemChanged', [getCurrentItems()]).trigger('fancyItemAdded', [item]);
             }
 
             function removeItem(index) {
-                console.log(index);
                 var current = items[index],
                     text = current.text;
 
