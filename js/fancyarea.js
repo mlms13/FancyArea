@@ -111,24 +111,28 @@
             // absorb classes from the existing textarea that is being replaced
             $area.addClass('fancy-area ' + $this[0].className);
 
-            // simulate a 'blur' event when focus leaves the div/input
-            $(document).on('click', function (e) {
-                var $target = $(e.target),
-                    focusClass = 'fancy-area-focus';
+            // when any input in FancyArea loses focus,
+            // simulate a blur on the FancyArea div
+            $area.on('blur', 'input', function () {
+                $area.removeClass('fancy-area-focus');
+            });
 
-                if ($area.is($target)) {
-                    // if $area was clicked, add the focus class and focus the input
-                    $area.addClass(focusClass);
-                    $entry.focus();
-                } else if ($area.has($target).length) {
-                    // if one of $area's descendants was clicked, only add the focus class
-                    // using .has() here seems to be faster than the alternatives
-                    // prooflink: http://jsperf.com/jquery-has-vs-is-el-find
-                    $area.addClass(focusClass);
-                } else {
-                    // otherwise, remove the focus class
-                    $area.removeClass(focusClass);
-                }
+            // but, if the focus just moved to a different input in FancyArea
+            // re-add the focus class
+            $area.on('focus', 'input', function () {
+                $area.addClass('fancy-area-focus');
+            });
+
+            // when the FancyArea is clicked, move focus to the main input
+            $area.on('click', function () {
+                $entry.focus();
+            });
+
+            // and when one of the FancyArea's children is clicked
+            // prevent the click from bubbling up to $area,
+            // which would force $entry to be focused
+            $area.children().on('click', function (e) {
+                e.stopPropagation();
             });
 
             // pressing "Enter" in the input should add the item to the `ul`
