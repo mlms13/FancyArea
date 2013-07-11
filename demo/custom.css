@@ -7,9 +7,12 @@
     font-style: normal;
 }
 
-.stateface {
-    font-family: 'StateFace';
-    speak: none;
+label[for=us-states] {
+  display: block;
+  margin-bottom: 6px;
+}
+.instructions {
+  color: #999;
 }
 
 .twitter-typeahead {
@@ -65,6 +68,11 @@
 
 .tt-suggestion p {
   margin: 0;
+}
+
+.stateface {
+    font-family: 'StateFace';
+    speak: none;
 }
 
 .state-us:before { content: "\e000"; }
