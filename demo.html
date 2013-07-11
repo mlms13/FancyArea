@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>FancyArea Demo</title>
         <link rel="stylesheet" href="css/fancyarea.css">
-        <link rel="stylesheet" href="css/bootstrap-typeahead.css">
+        <link rel="stylesheet" href="demo/typeahead.css">
         <style>
             body {
                 font: 14px sans-serif;
@@ -22,18 +22,22 @@
         <label for="my-text">List your favorite states (one per line):</label>
         <textarea name="my-text" id="my-text" class="text-narrow" cols="30" rows="6"></textarea>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script src="js/bootstrap-typeahead.js"></script>
+        <script src="demo/typeahead.min.js"></script>
         <script src="js/fancyarea.js"></script>
         <script>
         (function () {
             var data = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
 
             $(document).on('fancyInputCreated', function (event, $input) {
-                $input.typeahead({source: data});
+                $input.typeahead({
+                    name: 'us-states',
+                    local: data
+                });
             });
             $('#my-text').fancyArea()
             .on('fancyItemAdded', function (event, item) {
                 console.log('An item with value ' + item.text + ' was added at position ' + item.index + '.');
+                $('.fancy-text-entry').typeahead('setQuery', '');
             })
             .on('fancyItemRemoved', function (event, item) {
                 console.log('The item at position ' + item.index + ' wth a value of ' + item.text + ' was removed.');
