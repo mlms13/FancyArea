@@ -17,6 +17,10 @@
                 $entry = $('<input class="fancy-text-entry" />').appendTo($area),
                 items = [],
                 settings = $.extend({
+                    divClass: 'fancy-area',
+                    divFocusClass: 'fancy-area-focus',
+                    itemClass: 'fancy-item',
+                    itemFocusClass: 'fancy-item-focus',
                     validate: function (text) {
                         return text !== '';
                     }
@@ -38,7 +42,7 @@
 
             function addItem(text) {
                 var item = {
-                    $li: $('<li class="fancy-item"></li>'),
+                    $li: $('<li />').addClass(settings.itemClass),
                     $input: $('<input />').attr('value', text),
                     $remove: $('<span class="fancy-remove">&times;</span>'),
                     text: text,
@@ -60,12 +64,12 @@
                     $entry.focus();
                 })
                 .on('focus', function () {
-                    item.$li.addClass('fancy-item-focus');
+                    item.$li.addClass(settings.itemFocusClass);
                 })
                 .on('blur', function () {
                     var val = item.$input.val();
 
-                    item.$li.removeClass('fancy-item-focus');
+                    item.$li.removeClass(settings.itemFocusClass);
 
                     // re-focus the input if validation fails
                     if (!settings.validate(val)) {
@@ -115,7 +119,7 @@
             }
 
             // absorb classes from the existing textarea that is being replaced
-            $area.addClass('fancy-area ' + $this[0].className)
+            $area.addClass(settings.divClass + ' ' + $this[0].className)
             .attr('id', $this[0].id);
 
             // any label that used to target the textarea should now focus $entry
@@ -126,13 +130,13 @@
             // when any input in FancyArea loses focus,
             // simulate a blur on the FancyArea div
             $area.on('blur', 'input', function () {
-                $area.removeClass('fancy-area-focus');
+                $area.removeClass(settings.divFocusClass);
             });
 
             // but, if the focus just moved to a different input in FancyArea
             // re-add the focus class
             $area.on('focus', 'input', function () {
-                $area.addClass('fancy-area-focus');
+                $area.addClass(settings.divFocusClass);
             });
 
             // when the FancyArea is clicked, move focus to the main input
