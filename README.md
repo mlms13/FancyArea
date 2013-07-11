@@ -7,6 +7,7 @@ Is it just a textarea? No. It's much fancier than that. A FancyArea is a great w
 - Immediate feedback when the user enters an item
 - Validation before items are added
 - Deleting and editing of existing items
+- Simple integration with Twitter's [typeahead.js](http://twitter.github.io/typeahead.js/) (as well as [bootstrap-typeahead](http://twitter.github.io/bootstrap/javascript.html#typeahead))
 - Custom events when an item is added, removed, or changed
 
 ## Getting Started
@@ -23,13 +24,13 @@ Suddenly, your boring `textarea` is transformed into a slick FancyArea.
 
 ### How do I style it?
 
-Your new FancyArea is actually a `div` (styled to look like a `textarea`) with a class of `fancy-area` (and `fancy-area-focus` when the input is focused). You can add your own styles to these classes.
+Your new FancyArea is actually a `div` styled to look like a `textarea`. By default, it has a class of `fancy-area` (and `fancy-area-focus` when the input is focused), but you can change these classes when you initialize your FancyArea.
 
-FancyArea will also absorb any classes that applied to the original `textarea`, so if you want a stylish `no-js` fallback, you can style one of those classes, and FancyArea will pick up that styling.
+FancyArea will also absorb the ID and any classes that applied to the original `textarea`.
 
 You'll probably want to give a `width` (or `min-width`) to FancyArea unless you want a full-width text box. Unlike the original `textarea`, the browser won't limit the width of your FancyArea by default.
 
-### How do I know the contents of my FancyArea?
+### How do I find the contents of my FancyArea?
 
 When the content is changed, several custom jQuery events are triggered. You can listen to these events and use the data supplied to the callback function.
 
@@ -41,11 +42,11 @@ $('textarea').fancyArea().on('fancyItemChanged', function (event, items) {
 });
 ```
 
-Two other custom events also exist: `fancyItemAdded` and `fancyItemRemoved`. For both, the callback function receives a jQuery event object as the first parameter, and a string of text (representing the item that was added or removed) as the second parameter.
+Two other custom events, `fancyItemAdded` and `fancyItemRemoved`, also pass data to the callback function.
 
 If you don't want to keep track of the data with Javascript, it's all stored in `input` elements, so it will be submitted to the server when the form is submitted.
 
-### What else can I do with it?
+### How can I validate the input?
 
 When invoking a FancyArea, you can pass a custom validation function. This function will be run before an item is added or changed. If the function returns false, the item will not be added. The default validation function does not allow empty strings to be added. The following would only allow items that start with "m":
 
@@ -57,21 +58,40 @@ $('textarea').fancyArea({
 });
 ```
 
+### How do I add typeahead suggestions?
+
+The `demo.html` file is a great place to start. When the FancyArea plugin creates an `input`, a custom event is triggered on the `document` and a jQuery object representing the input is passed to the callback function.  Using typeahead.js, you can initialize typeahead functionality like this:
+
+```
+$(document).on('fancyInputCreated', function (event, $input) {
+  $input.typeahead();
+```
+
+Because typeahead doesn't allow you to clear the `input` by simply setting `.val('')`, you'll need to manually empty the query each time FancyArea adds an item:
+
+```
+$('textarea').fancyArea().on('fancyItemAdded', function () {
+  $('.fancy-text-entry').typeahead('setQuery', '');
+});
+```
+
+Again, a more detailed example is available in the `demo.html` file.
+
 ## How is it licensed?
 
 MIT-style. Like this:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
+> Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
+> The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
