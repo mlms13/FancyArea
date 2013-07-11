@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'StateFace';
-    src:url('fonts/StateFace.eot');
-    src:url('fonts/StateFace.eot?#iefix') format('embedded-opentype'),
-        url('fonts/StateFace.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'StateFace';
+  src:url('fonts/StateFace.eot');
+  src:url('fonts/StateFace.eot?#iefix') format('embedded-opentype'),
+    url('fonts/StateFace.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 label[for=us-states] {
@@ -27,36 +27,46 @@ label[for=us-states] {
 
 .tt-dropdown-menu {
   min-width: 160px;
-  margin-top: 2px;
-  padding: 5px 0;
+  margin-top: 8px;
   background-color: #fff;
   border: 1px solid #ccc;
-  border: 1px solid rgba(0,0,0,.2);
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-          box-shadow: 0 5px 10px rgba(0,0,0,.2);
-  -webkit-background-clip: padding-box;
-     -moz-background-clip: padding;
-          background-clip: padding-box;
+  box-shadow: 0 3px 6px rgba(0,0,0,.2);
+  background-clip: padding-box;
+}
+
+.tt-dropdown-menu:before,
+.tt-dropdown-menu:after {
+  border: 8px solid transparent;
+  content: "";
+  left: 6px;
+  position: absolute;
+}
+
+.tt-dropdown-menu:before {
+  border-bottom-color: #ccc;
+  top: -17px;
+}
+
+.tt-dropdown-menu:after {
+  border-bottom-color: #fff;
+  top: -16px;
 }
 
 .tt-suggestion {
-  border-bottom: 1px solid #f6f6f6;
+  border-top: 1px solid #f6f6f6;
   display: block;
   overflow: hidden;
   padding: 5px 20px 5px 40px;
   position: relative;
 }
+.tt-suggestion:first-child {
+  border-top: 0;
+}
 .tt-suggestion .stateface {
   color: #888;
   font-size: 24px;
   left: 2px;
-  line-height: 38px;
+  line-height: 42px;
   position: absolute;
   text-align: center;
   top: 0;
@@ -65,18 +75,12 @@ label[for=us-states] {
 
 .tt-suggestion .tagline {
   color: #888;
+  font-size: 12px;
 }
 
 .tt-suggestion.tt-is-under-cursor {
   color: #fff;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
-  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0)
+  background-color: #09d;
 }
 
 .tt-suggestion.tt-is-under-cursor a,
@@ -90,8 +94,8 @@ label[for=us-states] {
 }
 
 .stateface {
-    font-family: 'StateFace';
-    speak: none;
+  font-family: 'StateFace';
+  speak: none;
 }
 
 .state-us:before { content: "\e000"; }
