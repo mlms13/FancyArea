@@ -65,9 +65,10 @@ The `demo.html` file is a great place to start. When the FancyArea plugin create
 ```
 $(document).on('fancyInputCreated', function (event, $input) {
   $input.typeahead();
+});
 ```
 
-Because typeahead doesn't allow you to clear the `input` by simply setting `.val('')`, you'll need to manually empty the query each time FancyArea adds an item:
+Because typeahead.js doesn't allow you to clear the `input` by simply setting `.val('')`, you'll need to manually empty the query each time FancyArea adds an item:
 
 ```
 $('textarea').fancyArea().on('fancyItemAdded', function () {
