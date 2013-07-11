@@ -85,166 +85,171 @@ var data = [{
 },
 {
     value: "Louisiana",
-    tag: "",
+    tag: "Come as you are. Leave Different.",
     code: "la"
 },
 {
     value: "Maine",
-    tag: "",
+    tag: "Worth A Visit, Worth A Lifetime",
     code: "me"
 },
 {
     value: "Maryland",
-    tag: "",
+    tag: "Maryland of Opportunity",
     code: "md"
 },
 {
     value: "Massachusetts",
-    tag: "",
+    tag: "The Spirit of America",
     code: "ma"
 },
 {
     value: "Michigan",
-    tag: "",
+    tag: "Pure Michigan",
     code: "mi"
 },
 {
     value: "Minnesota",
-    tag: "",
+    tag: "Land of 10,000 Lakes",
     code: "mn"
 },
 {
     value: "Mississippi",
-    tag: "",
+    tag: "Feels Like Coming Home",
     code: "ms"
 },
 {
     value: "Missouri",
-    tag: "",
+    tag: "Show Me State",
     code: "mo"
 },
 {
     value: "Montana",
-    tag: "",
+    tag: "Big Sky Country",
     code: "mt"
 },
 {
     value: "Nebraska",
-    tag: "",
+    tag: "Possibilities...Endless",
     code: "ne"
 },
 {
     value: "Nevada",
-    tag: "",
+    tag: "Wide Open",
     code: "nv"
 },
 {
     value: "New Hampshire",
-    tag: "",
+    tag: "You're Going to Love it Here",
     code: "nh"
 },
 {
     value: "New Jersey",
-    tag: "",
+    tag: "The Garden State",
     code: "nj"
 },
 {
     value: "New Mexico",
-    tag: "",
+    tag: "Everybody is Somebody in New Mexico",
     code: "nm"
 },
 {
     value: "New York",
-    tag: "",
+    tag: "The Empire State",
     code: "ny"
 },
 {
     value: "North Carolina",
-    tag: "",
+    tag: "First in Flight",
     code: "nc"
 },
 {
     value: "North Dakota",
-    tag: "",
+    tag: "Legendary",
     code: "nd"
 },
 {
     value: "Ohio",
-    tag: "",
+    tag: "Birthplace of Aviation",
     code: "oh"
 },
 {
     value: "Oklahoma",
-    tag: "",
+    tag: "Native America",
     code: "ok"
 },
 {
     value: "Oregon",
-    tag: "",
+    tag: "We Love Dreamers",
     code: "or"
 },
 {
     value: "Pennsylvania",
-    tag: "",
+    tag: "You've Got a Friend in Pennsylvania",
     code: "pa"
 },
 {
+    value: "Puerto Rico",
+    tag: "La isla del encanto",
+    code: "pr"
+},
+{
     value: "Rhode Island",
-    tag: "",
+    tag: "Unwind The Ocean State",
     code: "ri"
 },
 {
     value: "South Carolina",
-    tag: "",
+    tag: "Smiling Faces. Beautiful Places.",
     code: "sc"
 },
 {
     value: "South Dakota",
-    tag: "",
+    tag: "Great Faces. Great Places.",
     code: "sd"
 },
 {
     value: "Tennessee",
-    tag: "",
+    tag: "America at its best",
     code: "tn"
 },
 {
     value: "Texas",
-    tag: "",
+    tag: "The Lone Star State",
     code: "tx"
 },
 {
     value: "Utah",
-    tag: "",
+    tag: "Life Elevated",
     code: "ut"
 },
 {
     value: "Vermont",
-    tag: "",
+    tag: "The Green Mountain State",
     code: "vt"
 },
 {
     value: "Virginia",
-    tag: "",
+    tag: "Virginia is for Lovers",
     code: "va"
 },
 {
     value: "Washington",
-    tag: "",
+    tag: "Say WA!",
     code: "wa"
 },
 {
     value: "West Virginia",
-    tag: "",
+    tag: "Wild and Wonderful",
     code: "wv"
 },
 {
     value: "Wisconsin",
-    tag: "",
+    tag: "America's Dairyland",
     code: "wi"
 },
 {
     value: "Wyoming",
-    tag: "",
+    tag: "Like No Place on Earth",
     code: "wy"
 }];
