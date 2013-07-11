@@ -47,7 +47,23 @@ label[for=us-states] {
 
 .tt-suggestion {
   display: block;
-  padding: 3px 20px;
+  overflow: hidden;
+  padding: 3px 20px 3px 40px;
+  position: relative;
+}
+.tt-suggestion .stateface {
+  color: #888;
+  font-size: 24px;
+  left: 2px;
+  line-height: 38px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 30px;
+}
+
+.tt-suggestion .tagline {
+  color: #888;
 }
 
 .tt-suggestion.tt-is-under-cursor {
@@ -62,7 +78,9 @@ label[for=us-states] {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0)
 }
 
-.tt-suggestion.tt-is-under-cursor a {
+.tt-suggestion.tt-is-under-cursor a,
+.tt-suggestion.tt-is-under-cursor .stateface,
+.tt-suggestion.tt-is-under-cursor .tagline {
   color: #fff;
 }
 
