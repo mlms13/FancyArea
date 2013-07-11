@@ -28,7 +28,7 @@
         <script src="js/fancyarea.js"></script>
         <script>
         (function () {
-            var template = Handlebars.compile('<i class="state-{{code}}"></i> <strong>{{value}}</strong><br><em>{{tag}}</em>');
+            var template = Handlebars.compile('<i class="stateface state-{{code}}"></i> <strong>{{value}}</strong><br><em>{{tag}}</em>');
 
             $(document).on('fancyInputCreated', function (event, $input) {
                 $input.typeahead({

@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'StateFace';
+    src:url('fonts/StateFace.eot');
+    src:url('fonts/StateFace.eot?#iefix') format('embedded-opentype'),
+        url('fonts/StateFace.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.stateface {
+    font-family: 'StateFace';
+    speak: none;
+}
+
 .twitter-typeahead {
   width: 100%;
 }
@@ -52,3 +66,57 @@
 .tt-suggestion p {
   margin: 0;
 }
+
+.state-us:before { content: "\e000"; }
+.state-al:before { content: "\e001"; }
+.state-ak:before { content: "\e002"; }
+.state-az:before { content: "\e003"; }
+.state-ar:before { content: "\e004"; }
+.state-ca:before { content: "\e005"; }
+.state-co:before { content: "\e006"; }
+.state-ct:before { content: "\e007"; }
+.state-de:before { content: "\e008"; }
+.state-dc:before { content: "\e009"; }
+.state-fl:before { content: "\e00a"; }
+.state-ga:before { content: "\e00b"; }
+.state-hi:before { content: "\e00c"; }
+.state-id:before { content: "\e00d"; }
+.state-il:before { content: "\e00e"; }
+.state-in:before { content: "\e00f"; }
+.state-ia:before { content: "\e010"; }
+.state-ks:before { content: "\e011"; }
+.state-ky:before { content: "\e012"; }
+.state-la:before { content: "\e013"; }
+.state-me:before { content: "\e014"; }
+.state-md:before { content: "\e015"; }
+.state-ma:before { content: "\e016"; }
+.state-mi:before { content: "\e017"; }
+.state-mn:before { content: "\e018"; }
+.state-ms:before { content: "\e019"; }
+.state-mo:before { content: "\e01a"; }
+.state-mt:before { content: "\e01b"; }
+.state-ne:before { content: "\e01c"; }
+.state-nv:before { content: "\e01d"; }
+.state-nh:before { content: "\e01e"; }
+.state-nj:before { content: "\e01f"; }
+.state-nm:before { content: "\e020"; }
+.state-ny:before { content: "\e021"; }
+.state-nc:before { content: "\e022"; }
+.state-nd:before { content: "\e023"; }
+.state-oh:before { content: "\e024"; }
+.state-ok:before { content: "\e025"; }
+.state-or:before { content: "\e026"; }
+.state-pa:before { content: "\e027"; }
+.state-ri:before { content: "\e028"; }
+.state-sc:before { content: "\e029"; }
+.state-sd:before { content: "\e02a"; }
+.state-tn:before { content: "\e02b"; }
+.state-tx:before { content: "\e02c"; }
+.state-ut:before { content: "\e02d"; }
+.state-vt:before { content: "\e02e"; }
+.state-va:before { content: "\e02f"; }
+.state-wa:before { content: "\e030"; }
+.state-wv:before { content: "\e031"; }
+.state-wi:before { content: "\e032"; }
+.state-wy:before { content: "\e033"; }
+.state-pr:before { content: "\e035"; }
