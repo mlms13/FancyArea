@@ -1,101 +1,101 @@
 @font-face {
-  font-family: 'StateFace';
-  src:url('fonts/StateFace.eot');
-  src:url('fonts/StateFace.eot?#iefix') format('embedded-opentype'),
-    url('fonts/StateFace.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'StateFace';
+    src:url('fonts/StateFace.eot');
+    src:url('fonts/StateFace.eot?#iefix') format('embedded-opentype'),
+        url('fonts/StateFace.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 label[for=us-states] {
-  display: block;
-  margin-bottom: 6px;
+    display: block;
+    margin-bottom: 6px;
 }
 .instructions {
-  color: #999;
+    color: #999;
 }
 
 .twitter-typeahead {
-  width: 100%;
+    width: 100%;
 }
 
 .twitter-typeahead .tt-query,
 .twitter-typeahead .tt-hint {
-  border-width: 1px;
-  margin-bottom: 0;
+    border-width: 1px;
+    margin-bottom: 0;
 }
 
 .tt-dropdown-menu {
-  min-width: 160px;
-  margin-top: 8px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 3px 6px rgba(0,0,0,.2);
-  background-clip: padding-box;
+    min-width: 160px;
+    margin-top: 8px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2);
+    background-clip: padding-box;
 }
 
 .tt-dropdown-menu:before,
 .tt-dropdown-menu:after {
-  border: 8px solid transparent;
-  content: "";
-  left: 6px;
-  position: absolute;
+    border: 8px solid transparent;
+    content: "";
+    left: 6px;
+    position: absolute;
 }
 
 .tt-dropdown-menu:before {
-  border-bottom-color: #ccc;
-  top: -17px;
+    border-bottom-color: #ccc;
+    top: -17px;
 }
 
 .tt-dropdown-menu:after {
-  border-bottom-color: #fff;
-  top: -16px;
+    border-bottom-color: #fff;
+    top: -16px;
 }
 
 .tt-suggestion {
-  border-top: 1px solid #f6f6f6;
-  display: block;
-  overflow: hidden;
-  padding: 5px 20px 5px 40px;
-  position: relative;
+    border-top: 1px solid #f6f6f6;
+    display: block;
+    overflow: hidden;
+    padding: 5px 20px 5px 40px;
+    position: relative;
 }
 .tt-suggestion:first-child {
-  border-top: 0;
+    border-top: 0;
 }
 .tt-suggestion .stateface {
-  color: #888;
-  font-size: 24px;
-  left: 2px;
-  line-height: 42px;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  width: 30px;
+    color: #888;
+    font-size: 24px;
+    left: 2px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 30px;
 }
 
 .tt-suggestion .tagline {
-  color: #888;
-  font-size: 12px;
+    color: #888;
+    font-size: 12px;
 }
 
 .tt-suggestion.tt-is-under-cursor {
-  color: #fff;
-  background-color: #09d;
+    color: #fff;
+    background-color: #09d;
 }
 
 .tt-suggestion.tt-is-under-cursor a,
 .tt-suggestion.tt-is-under-cursor .stateface,
 .tt-suggestion.tt-is-under-cursor .tagline {
-  color: #fff;
+    color: #fff;
 }
 
 .tt-suggestion p {
-  margin: 0;
+    margin: 0;
 }
 
 .stateface {
-  font-family: 'StateFace';
-  speak: none;
+    font-family: 'StateFace';
+    speak: none;
 }
 
 .state-us:before { content: "\e000"; }
