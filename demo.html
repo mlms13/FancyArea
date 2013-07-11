@@ -37,6 +37,7 @@
             $('#my-text').fancyArea()
             .on('fancyItemAdded', function (event, item) {
                 console.log('An item with value ' + item.text + ' was added at position ' + item.index + '.');
+                $('.fancy-text-entry').typeahead('setQuery', '');
             })
             .on('fancyItemRemoved', function (event, item) {
                 console.log('The item at position ' + item.index + ' wth a value of ' + item.text + ' was removed.');
