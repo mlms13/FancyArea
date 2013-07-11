@@ -111,6 +111,11 @@
             // absorb classes from the existing textarea that is being replaced
             $area.addClass('fancy-area ' + $this[0].className);
 
+            // any label that used to target the textarea should now focus $entry
+            $('[for=' + $this[0].id + ']').on('click', function() {
+                $entry.focus();
+            });
+
             // when any input in FancyArea loses focus,
             // simulate a blur on the FancyArea div
             $area.on('blur', 'input', function () {
