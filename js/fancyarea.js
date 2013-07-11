@@ -109,7 +109,8 @@
             }
 
             // absorb classes from the existing textarea that is being replaced
-            $area.addClass('fancy-area ' + $this[0].className);
+            $area.addClass('fancy-area ' + $this[0].className)
+            .attr('id', $this[0].id);
 
             // any label that used to target the textarea should now focus $entry
             $('[for=' + $this[0].id + ']').on('click', function() {
