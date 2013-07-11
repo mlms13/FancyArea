@@ -58,8 +58,14 @@
 
                     // re-focus the original entry after editing is done
                     $entry.focus();
-                }).on('blur', function () {
+                })
+                .on('focus', function () {
+                    item.$li.addClass('fancy-item-focus');
+                })
+                .on('blur', function () {
                     var val = item.$input.val();
+
+                    item.$li.removeClass('fancy-item-focus');
 
                     // re-focus the input if validation fails
                     if (!settings.validate(val)) {
