@@ -163,7 +163,7 @@
             }).on('keydown', function (e) {
                 var lastIndex = items.length - 1;
 
-                if (e.which === 8 && $entry.val() === '') {
+                if (e.which === 8 && $entry.val() === '' && items.length) {
                     // if backspace is pressed and the input is empty
                     // re-edit the previous item
                     $entry.val(items[lastIndex].text);
