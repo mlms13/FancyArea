@@ -1,6 +1,6 @@
 # FancyArea
 
-Is it just a textarea? No. It's much fancier than that. A FancyArea is a great way to handle a user-entered list of items.
+Is it just a textarea? No. It's much fancier than that. A FancyArea is a great way to handle a user-entered list of items. [See it in action on Codepen.](http://codepen.io/mlms13/full/rCnDK)
 
 ## Featuring:
 
